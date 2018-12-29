@@ -4,7 +4,9 @@
   "description": "thrift mock module",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "lint": "eslint .",
+    "fix": "eslint --fix ."
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,13 @@
   "homepage": "https://github.com/kikooo/thrift-to-json#readme",
   "dependencies": {
     "thrift": "^0.11.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.11.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.12.0"
   }
 }
