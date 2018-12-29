@@ -1,0 +1,26 @@
+{
+  "name": "thrift-to-json",
+  "version": "1.0.0",
+  "description": "thrift mock module",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kikooo/thrift-to-json.git"
+  },
+  "keywords": [
+    "thrift",
+    "mock"
+  ],
+  "author": "kikooo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kikooo/thrift-to-json/issues"
+  },
+  "homepage": "https://github.com/kikooo/thrift-to-json#readme",
+  "dependencies": {
+    "thrift": "^0.11.0"
+  }
+}
