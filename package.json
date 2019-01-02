@@ -4,7 +4,8 @@
   "description": "thrift mock module",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "start": "node ./index.js",
+    "build": "build",
     "lint": "eslint .",
     "fix": "eslint --fix ."
   },

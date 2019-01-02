@@ -1,25 +1,17 @@
 /**
- * @file server
+ * @file 启动文件
  *
  * @author kikooo(wenyunyan@maoyan.com)
  */
 
-import thrift from 'thrift';
+// const thrift = require('thrift');
+const createServer = require('./lib/createServer');
 
-const server = thrift.createServer(Hello, {
-  say(name, callback) {
-    callback(null, `Hello ${name}`);
-  }
-}, {});
+// 配置示例
+let cfgs = require('./test/config');
 
-server.listen(7800);
+if (typeof cfgs === 'string') {
+  cfgs = JSON.parse(cfgs);
+}
 
-server.on('error', console.error);
-
-server.on('listening', () => {
-  const conn = thrift.createConnection('127.0.0.1', 7800);
-  const client = thrift.createClient(Hello, conn);
-
-  client.say('Thrift', console.log);
-  // null 'Hello Thrift'
-});
+createServer(cfgs.thrift.servers);
