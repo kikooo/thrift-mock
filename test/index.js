@@ -4,18 +4,14 @@
  * @author kikooo(wenyunyan@maoyan.com)
  */
 
-// import thrift from 'thrift';
-
-// import Hello from './thrift/hello/gen-nodejs/TSayHelloService';
-// import types from './thrift/hello/gen-nodejs/hello_types';
-
 const thrift = require('thrift');
 const Hello = require('./thrift/hello/gen-nodejs/TSayHelloService');
 
 const server = thrift.createServer(Hello, {
-  sayHello(name, callback) {
+  sayHello(data, callback) {
     console.log('sayHello()');
-    callback(null, `Hello ${name}`);
+    console.log(data, data.name);
+    callback(null, { success: true, data: { msg: `Hello ${data.name}` } });
   }
 }, {});
 
@@ -27,5 +23,5 @@ server.on('listening', () => {
   const conn = thrift.createConnection('127.0.0.1', 4060);
   const client = thrift.createClient(Hello, conn);
 
-  client.sayHello('Thrift', console.log);
+  client.sayHello({ name: 'Thrift' }, console.log);
 });

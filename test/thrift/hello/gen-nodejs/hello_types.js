@@ -11,11 +11,6 @@ var Q = thrift.Q;
 
 
 var ttypes = module.exports = {};
-ttypes.TGender = {
-  'MALE' : 1,
-  'FEMALE' : 2,
-  'UNKNOWN' : 3
-};
 ttypes.THelloType = {
   'HI' : 1,
   'HELLO' : 2,
@@ -88,11 +83,11 @@ Error.prototype.write = function(output) {
 };
 
 var THelloMessage = module.exports.THelloMessage = function(args) {
-  this.gender = null;
+  this.msg = null;
   this.helloMsg = null;
   if (args) {
-    if (args.gender !== undefined && args.gender !== null) {
-      this.gender = args.gender;
+    if (args.msg !== undefined && args.msg !== null) {
+      this.msg = args.msg;
     }
     if (args.helloMsg !== undefined && args.helloMsg !== null) {
       this.helloMsg = args.helloMsg;
@@ -114,8 +109,8 @@ THelloMessage.prototype.read = function(input) {
     switch (fid)
     {
       case 1:
-      if (ftype == Thrift.Type.I32) {
-        this.gender = input.readI32();
+      if (ftype == Thrift.Type.STRING) {
+        this.msg = input.readString();
       } else {
         input.skip(ftype);
       }
@@ -138,9 +133,9 @@ THelloMessage.prototype.read = function(input) {
 
 THelloMessage.prototype.write = function(output) {
   output.writeStructBegin('THelloMessage');
-  if (this.gender !== null && this.gender !== undefined) {
-    output.writeFieldBegin('gender', Thrift.Type.I32, 1);
-    output.writeI32(this.gender);
+  if (this.msg !== null && this.msg !== undefined) {
+    output.writeFieldBegin('msg', Thrift.Type.STRING, 1);
+    output.writeString(this.msg);
     output.writeFieldEnd();
   }
   if (this.helloMsg !== null && this.helloMsg !== undefined) {

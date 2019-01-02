@@ -1,11 +1,5 @@
 namespace java hello.test
 
-enum TGender {
-  MALE = 1, //男
-  FEMALE = 2, //女
-  UNKNOWN = 3 //未知
-}
-
 enum THelloType {
   HI = 1,
   HELLO = 2,
@@ -18,7 +12,7 @@ struct Error {
 }
 
 struct THelloMessage {
-  1:  TGender gender,
+  1:  string msg,
   2:  THelloType helloMsg,
 }
 
