@@ -6,11 +6,12 @@
 
 const thrift = require('thrift');
 const Hello = require('./thrift/hello/gen-nodejs/TSayHelloService');
+// const helloTypes = require('./thrift/hello/gen-nodejs/hello_types');
 
 const server = thrift.createServer(Hello, {
   sayHello(data, callback) {
     console.log('sayHello()');
-    console.log(data, data.name);
+    // console.log(Hello.ttypes);
     callback(null, { success: true, data: { msg: `Hello ${data.name}` } });
   }
 }, {});

@@ -24,8 +24,10 @@ struct TSayHelloResponse {
 
 struct TSayHelloRequest {
   1:  string name,
+  2:  list<string> friends,
 }
 
 service TSayHelloService {
-  TSayHelloResponse sayHello(1: TSayHelloRequest arg0)
+  TSayHelloResponse sayHello(1: TSayHelloRequest arg0),
+  map<string, set<i32>> searchMovieByRtDateFilterFuzzyTime(1:string startDate, 2:string endDate, 3:i32 offset, 4:i32 limit)
 }
