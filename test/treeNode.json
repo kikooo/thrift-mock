@@ -66,7 +66,7 @@
         "friends": {
           "_type": {
             "type": "list",
-            "struct": ["string"]
+            "struct": "string"
           },
           "_name": "friends"
         }
@@ -75,6 +75,27 @@
   },
   "services": {
     "TSayHelloService": {
+      "testRequest": {
+        "_request": {
+          "celebrityId": {
+            "_type": "i32",
+            "_name": "celebrityId"
+          },
+          "cityId": {
+            "_type": "i32",
+            "_name": "cityId"
+          },
+          "otherParams": {
+            "_type": {
+              "type": "map",
+              "struct": ["string", "string"]
+            },
+            "_name": "otherParams"
+          }
+        },
+        "_name": "testRequest",
+        "_response": "string"
+      },
       "sayHello": {
         "_request": {
           "arg0": {
@@ -85,7 +106,7 @@
         "_name": "sayHello",
         "_response": "TSayHelloResponse"
       },
-      "searchMovieByRtDateFilterFuzzyTime": {
+      "testMap": {
         "_request": {
           "startDate": {
             "_type": "string",
@@ -104,12 +125,12 @@
             "_name": "limit"
           }
         },
-        "_name": "searchMovieByRtDateFilterFuzzyTime",
+        "_name": "testMap",
         "_response": {
           "type": "map",
           "struct": ["string", {
             "type": "set",
-            "struct": ["i32"]
+            "struct": "i32"
           }]
         }
       }
