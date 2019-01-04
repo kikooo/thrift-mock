@@ -31,6 +31,7 @@ struct TSayHelloRequest {
 
 /* 123123123
 kdkdisiskksi
+aaa
 */
 
 service TSayHelloService {
