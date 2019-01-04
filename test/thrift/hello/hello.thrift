@@ -27,6 +27,12 @@ struct TSayHelloRequest {
   2:  list<string> friends,
 }
 
+// Its a COMMENT LINE, do nothing.
+
+/* 123123123
+kdkdisiskksi
+*/
+
 service TSayHelloService {
   string testRequest(1:i32 celebrityId, 2:i32 cityId, 3:map<string, string> otherParams),
   TSayHelloResponse sayHello(1: TSayHelloRequest arg0),
