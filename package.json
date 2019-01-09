@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/kikooo/thrift-to-json#readme",
   "dependencies": {
+    "long": "^4.0.0",
     "thrift": "^0.11.0"
   },
   "devDependencies": {
