@@ -1,1 +1,149 @@
-{"lastModifiedTime":"1546583256649.913","nodes":{"THelloType":{"_type":"enum","_name":"THelloType","value":{"HI":"1","HELLO":"2","WELCOME":"3"}},"Error":{"_type":"struct","_name":"Error","value":{"code":{"_type":"i64","_name":"code"},"message":{"_type":"string","_name":"message"}}},"THelloMessage":{"_type":"struct","_name":"THelloMessage","value":{"msg":{"_type":"string","_name":"msg"},"helloMsg":{"_type":"THelloType","_name":"helloMsg"}}},"TSayHelloResponse":{"_type":"struct","_name":"TSayHelloResponse","value":{"success":{"_type":"bool","_name":"success"},"error":{"_type":"Error","_name":"error"},"data":{"_type":"THelloMessage","_name":"data"}}},"TSayHelloRequest":{"_type":"struct","_name":"TSayHelloRequest","value":{"name":{"_type":"string","_name":"name"},"friends":{"_type":{"type":"list","struct":"string"},"_name":"friends"}}}},"services":{"TSayHelloService":{"testRequest":{"_request":{"celebrityId":{"_type":"i32","_name":"celebrityId"},"cityId":{"_type":"i32","_name":"cityId"},"otherParams":{"_type":{"type":"map","struct":["string","string"]},"_name":"otherParams"}},"_name":"testRequest","_response":"string"},"sayHello":{"_request":{"arg0":{"_type":"TSayHelloRequest","_name":"arg0"}},"_name":"sayHello","_response":"TSayHelloResponse"},"testMap":{"_request":{"startDate":{"_type":"string","_name":"startDate"},"endDate":{"_type":"string","_name":"endDate"},"offset":{"_type":"i32","_name":"offset"},"limit":{"_type":"i32","_name":"limit"}},"_name":"testMap","_response":{"type":"map","struct":[{"type":"list","struct":"string"},{"type":"set","struct":"i32"}]}}}}}
+{
+  "lastModifiedTime": "1546583256649.913",
+  "nodes": {
+    "THelloType": {
+      "_type": "enum",
+      "_name": "THelloType",
+      "value": {
+        "HI": 1,
+        "HELLO": 2,
+        "WELCOME": 3
+      }
+    },
+    "Error": {
+      "_type": "struct",
+      "_name": "Error",
+      "value": {
+        "code": {
+          "_type": "i64",
+          "_name": "code"
+        },
+        "message": {
+          "_type": "string",
+          "_name": "message"
+        }
+      }
+    },
+    "THelloMessage": {
+      "_type": "struct",
+      "_name": "THelloMessage",
+      "value": {
+        "msg": {
+          "_type": "string",
+          "_name": "msg"
+        },
+        "helloMsg": {
+          "_type": "THelloType",
+          "_name": "helloMsg"
+        }
+      }
+    },
+    "TSayHelloResponse": {
+      "_type": "struct",
+      "_name": "TSayHelloResponse",
+      "value": {
+        "success": {
+          "_type": "bool",
+          "_name": "success"
+        },
+        "error": {
+          "_type": "Error",
+          "_name": "error"
+        },
+        "data": {
+          "_type": "THelloMessage",
+          "_name": "data"
+        }
+      }
+    },
+    "TSayHelloRequest": {
+      "_type": "struct",
+      "_name": "TSayHelloRequest",
+      "value": {
+        "name": {
+          "_type": "string",
+          "_name": "name"
+        },
+        "friends": {
+          "_type": {
+            "type": "list",
+            "struct": "string"
+          },
+          "_name": "friends"
+        }
+      }
+    }
+  },
+  "services": {
+    "TSayHelloService": {
+      "testRequest": {
+        "_request": {
+          "celebrityId": {
+            "_type": "i32",
+            "_name": "celebrityId"
+          },
+          "cityId": {
+            "_type": "i32",
+            "_name": "cityId"
+          },
+          "otherParams": {
+            "_type": {
+              "type": "map",
+              "struct": [
+                "string",
+                "string"
+              ]
+            },
+            "_name": "otherParams"
+          }
+        },
+        "_name": "testRequest",
+        "_response": "string"
+      },
+      "sayHello": {
+        "_request": {
+          "arg0": {
+            "_type": "TSayHelloRequest",
+            "_name": "arg0"
+          }
+        },
+        "_name": "sayHello",
+        "_response": "TSayHelloResponse"
+      },
+      "testMap": {
+        "_request": {
+          "startDate": {
+            "_type": "string",
+            "_name": "startDate"
+          },
+          "endDate": {
+            "_type": "string",
+            "_name": "endDate"
+          },
+          "offset": {
+            "_type": "i32",
+            "_name": "offset"
+          },
+          "limit": {
+            "_type": "i32",
+            "_name": "limit"
+          }
+        },
+        "_name": "testMap",
+        "_response": {
+          "type": "map",
+          "struct": [
+            {
+              "type": "list",
+              "struct": "string"
+            },
+            {
+              "type": "set",
+              "struct": "i32"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
