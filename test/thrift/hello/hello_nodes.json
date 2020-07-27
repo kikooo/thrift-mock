@@ -1,5 +1,5 @@
 {
-  "lastModifiedTime": "1546583256649.913",
+  "lastModifiedTime": "1595840341542.5493",
   "nodes": {
     "THelloType": {
       "_type": "enum",
@@ -109,6 +109,19 @@
         },
         "_name": "sayHello",
         "_response": "TSayHelloResponse"
+      },
+      "sssssss": {
+        "_request": {
+          "arg0": {
+            "_type": "TSayHelloRequest",
+            "_name": "arg0"
+          }
+        },
+        "_name": "sssssss",
+        "_response": {
+          "type": "list",
+          "struct": "string"
+        }
       },
       "testMap": {
         "_request": {

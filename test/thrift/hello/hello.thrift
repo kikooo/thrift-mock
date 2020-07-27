@@ -37,5 +37,6 @@ aaa
 service TSayHelloService {
   string testRequest(1:i32 celebrityId, 2:i32 cityId, 3:map<string, string> otherParams),
   TSayHelloResponse sayHello(1: TSayHelloRequest arg0),
+  list<string> sssssss(1: TSayHelloRequest arg0),
   map<list<string>, set<i32>> testMap(1:string startDate, 2:string endDate, 3:i32 offset, 4:i32 limit),
 }
