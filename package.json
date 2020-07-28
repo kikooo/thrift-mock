@@ -1,28 +1,44 @@
 {
-  "name": "thrift-to-json",
-  "version": "1.0.0",
+  "name": "egg-thrift-mock",
+  "version": "0.0.1",
   "description": "thrift mock module",
-  "main": "index.js",
+  "eggPlugin": {
+    "name": "thrift-mock"
+  },
   "scripts": {
     "start": "node ./index.js",
-    "build": "build",
+    "test": "npm run lint -- --fix && egg-bin pkgfiles && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
     "lint": "eslint .",
-    "fix": "eslint --fix ."
+    "fix": "eslint --fix .",
+    "ci": "egg-bin pkgfiles --check && npm run lint && npm run cov",
+    "pkgfiles": "egg-bin pkgfiles",
+    "autod": "autod"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kikooo/thrift-to-json.git"
+    "url": "git+https://github.com/kikooo/thrift-mock.git"
   },
   "keywords": [
+    "egg",
+    "eggPlugin",
+    "egg-plugin",
+    "thrift-mock",
     "thrift",
     "mock"
+  ],
+  "files": [
+    "index.js",
+    "app.js",
+    "lib"
   ],
   "author": "kikooo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kikooo/thrift-to-json/issues"
+    "url": "https://github.com/kikooo/thrift-mock/issues"
   },
-  "homepage": "https://github.com/kikooo/thrift-to-json#readme",
+  "homepage": "https://github.com/kikooo/thrift-mock#readme",
   "dependencies": {
     "long": "^4.0.0",
     "thrift": "^0.11.0"
