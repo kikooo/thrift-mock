@@ -234,9 +234,13 @@ TSayHelloResponse.prototype.write = function(output) {
 
 var TSayHelloRequest = module.exports.TSayHelloRequest = function(args) {
   this.name = null;
+  this.friends = null;
   if (args) {
     if (args.name !== undefined && args.name !== null) {
       this.name = args.name;
+    }
+    if (args.friends !== undefined && args.friends !== null) {
+      this.friends = Thrift.copyList(args.friends, [null]);
     }
   }
 };
@@ -261,9 +265,26 @@ TSayHelloRequest.prototype.read = function(input) {
         input.skip(ftype);
       }
       break;
-      case 0:
+      case 2:
+      if (ftype == Thrift.Type.LIST) {
+        var _size0 = 0;
+        var _rtmp34;
+        this.friends = [];
+        var _etype3 = 0;
+        _rtmp34 = input.readListBegin();
+        _etype3 = _rtmp34.etype;
+        _size0 = _rtmp34.size;
+        for (var _i5 = 0; _i5 < _size0; ++_i5)
+        {
+          var elem6 = null;
+          elem6 = input.readString();
+          this.friends.push(elem6);
+        }
+        input.readListEnd();
+      } else {
         input.skip(ftype);
-        break;
+      }
+      break;
       default:
         input.skip(ftype);
     }
@@ -278,6 +299,20 @@ TSayHelloRequest.prototype.write = function(output) {
   if (this.name !== null && this.name !== undefined) {
     output.writeFieldBegin('name', Thrift.Type.STRING, 1);
     output.writeString(this.name);
+    output.writeFieldEnd();
+  }
+  if (this.friends !== null && this.friends !== undefined) {
+    output.writeFieldBegin('friends', Thrift.Type.LIST, 2);
+    output.writeListBegin(Thrift.Type.STRING, this.friends.length);
+    for (var iter7 in this.friends)
+    {
+      if (this.friends.hasOwnProperty(iter7))
+      {
+        iter7 = this.friends[iter7];
+        output.writeString(iter7);
+      }
+    }
+    output.writeListEnd();
     output.writeFieldEnd();
   }
   output.writeFieldStop();
