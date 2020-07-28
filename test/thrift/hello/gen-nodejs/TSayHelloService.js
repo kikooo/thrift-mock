@@ -13,6 +13,168 @@ var Q = thrift.Q;
 var ttypes = require('./hello_types');
 //HELPER FUNCTIONS AND STRUCTURES
 
+var TSayHelloService_testRequest_args = function(args) {
+  this.celebrityId = null;
+  this.cityId = null;
+  this.otherParams = null;
+  if (args) {
+    if (args.celebrityId !== undefined && args.celebrityId !== null) {
+      this.celebrityId = args.celebrityId;
+    }
+    if (args.cityId !== undefined && args.cityId !== null) {
+      this.cityId = args.cityId;
+    }
+    if (args.otherParams !== undefined && args.otherParams !== null) {
+      this.otherParams = Thrift.copyMap(args.otherParams, [null]);
+    }
+  }
+};
+TSayHelloService_testRequest_args.prototype = {};
+TSayHelloService_testRequest_args.prototype.read = function(input) {
+  input.readStructBegin();
+  while (true)
+  {
+    var ret = input.readFieldBegin();
+    var fname = ret.fname;
+    var ftype = ret.ftype;
+    var fid = ret.fid;
+    if (ftype == Thrift.Type.STOP) {
+      break;
+    }
+    switch (fid)
+    {
+      case 1:
+      if (ftype == Thrift.Type.I32) {
+        this.celebrityId = input.readI32();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 2:
+      if (ftype == Thrift.Type.I32) {
+        this.cityId = input.readI32();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 3:
+      if (ftype == Thrift.Type.MAP) {
+        var _size8 = 0;
+        var _rtmp312;
+        this.otherParams = {};
+        var _ktype9 = 0;
+        var _vtype10 = 0;
+        _rtmp312 = input.readMapBegin();
+        _ktype9 = _rtmp312.ktype;
+        _vtype10 = _rtmp312.vtype;
+        _size8 = _rtmp312.size;
+        for (var _i13 = 0; _i13 < _size8; ++_i13)
+        {
+          var key14 = null;
+          var val15 = null;
+          key14 = input.readString();
+          val15 = input.readString();
+          this.otherParams[key14] = val15;
+        }
+        input.readMapEnd();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      default:
+        input.skip(ftype);
+    }
+    input.readFieldEnd();
+  }
+  input.readStructEnd();
+  return;
+};
+
+TSayHelloService_testRequest_args.prototype.write = function(output) {
+  output.writeStructBegin('TSayHelloService_testRequest_args');
+  if (this.celebrityId !== null && this.celebrityId !== undefined) {
+    output.writeFieldBegin('celebrityId', Thrift.Type.I32, 1);
+    output.writeI32(this.celebrityId);
+    output.writeFieldEnd();
+  }
+  if (this.cityId !== null && this.cityId !== undefined) {
+    output.writeFieldBegin('cityId', Thrift.Type.I32, 2);
+    output.writeI32(this.cityId);
+    output.writeFieldEnd();
+  }
+  if (this.otherParams !== null && this.otherParams !== undefined) {
+    output.writeFieldBegin('otherParams', Thrift.Type.MAP, 3);
+    output.writeMapBegin(Thrift.Type.STRING, Thrift.Type.STRING, Thrift.objectLength(this.otherParams));
+    for (var kiter16 in this.otherParams)
+    {
+      if (this.otherParams.hasOwnProperty(kiter16))
+      {
+        var viter17 = this.otherParams[kiter16];
+        output.writeString(kiter16);
+        output.writeString(viter17);
+      }
+    }
+    output.writeMapEnd();
+    output.writeFieldEnd();
+  }
+  output.writeFieldStop();
+  output.writeStructEnd();
+  return;
+};
+
+var TSayHelloService_testRequest_result = function(args) {
+  this.success = null;
+  if (args) {
+    if (args.success !== undefined && args.success !== null) {
+      this.success = args.success;
+    }
+  }
+};
+TSayHelloService_testRequest_result.prototype = {};
+TSayHelloService_testRequest_result.prototype.read = function(input) {
+  input.readStructBegin();
+  while (true)
+  {
+    var ret = input.readFieldBegin();
+    var fname = ret.fname;
+    var ftype = ret.ftype;
+    var fid = ret.fid;
+    if (ftype == Thrift.Type.STOP) {
+      break;
+    }
+    switch (fid)
+    {
+      case 0:
+      if (ftype == Thrift.Type.STRING) {
+        this.success = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 0:
+        input.skip(ftype);
+        break;
+      default:
+        input.skip(ftype);
+    }
+    input.readFieldEnd();
+  }
+  input.readStructEnd();
+  return;
+};
+
+TSayHelloService_testRequest_result.prototype.write = function(output) {
+  output.writeStructBegin('TSayHelloService_testRequest_result');
+  if (this.success !== null && this.success !== undefined) {
+    output.writeFieldBegin('success', Thrift.Type.STRING, 0);
+    output.writeString(this.success);
+    output.writeFieldEnd();
+  }
+  output.writeFieldStop();
+  output.writeStructEnd();
+  return;
+};
+
 var TSayHelloService_sayHello_args = function(args) {
   this.arg0 = null;
   if (args) {
@@ -121,6 +283,357 @@ TSayHelloService_sayHello_result.prototype.write = function(output) {
   return;
 };
 
+var TSayHelloService_sssssss_args = function(args) {
+  this.arg0 = null;
+  if (args) {
+    if (args.arg0 !== undefined && args.arg0 !== null) {
+      this.arg0 = new ttypes.TSayHelloRequest(args.arg0);
+    }
+  }
+};
+TSayHelloService_sssssss_args.prototype = {};
+TSayHelloService_sssssss_args.prototype.read = function(input) {
+  input.readStructBegin();
+  while (true)
+  {
+    var ret = input.readFieldBegin();
+    var fname = ret.fname;
+    var ftype = ret.ftype;
+    var fid = ret.fid;
+    if (ftype == Thrift.Type.STOP) {
+      break;
+    }
+    switch (fid)
+    {
+      case 1:
+      if (ftype == Thrift.Type.STRUCT) {
+        this.arg0 = new ttypes.TSayHelloRequest();
+        this.arg0.read(input);
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 0:
+        input.skip(ftype);
+        break;
+      default:
+        input.skip(ftype);
+    }
+    input.readFieldEnd();
+  }
+  input.readStructEnd();
+  return;
+};
+
+TSayHelloService_sssssss_args.prototype.write = function(output) {
+  output.writeStructBegin('TSayHelloService_sssssss_args');
+  if (this.arg0 !== null && this.arg0 !== undefined) {
+    output.writeFieldBegin('arg0', Thrift.Type.STRUCT, 1);
+    this.arg0.write(output);
+    output.writeFieldEnd();
+  }
+  output.writeFieldStop();
+  output.writeStructEnd();
+  return;
+};
+
+var TSayHelloService_sssssss_result = function(args) {
+  this.success = null;
+  if (args) {
+    if (args.success !== undefined && args.success !== null) {
+      this.success = Thrift.copyList(args.success, [null]);
+    }
+  }
+};
+TSayHelloService_sssssss_result.prototype = {};
+TSayHelloService_sssssss_result.prototype.read = function(input) {
+  input.readStructBegin();
+  while (true)
+  {
+    var ret = input.readFieldBegin();
+    var fname = ret.fname;
+    var ftype = ret.ftype;
+    var fid = ret.fid;
+    if (ftype == Thrift.Type.STOP) {
+      break;
+    }
+    switch (fid)
+    {
+      case 0:
+      if (ftype == Thrift.Type.LIST) {
+        var _size18 = 0;
+        var _rtmp322;
+        this.success = [];
+        var _etype21 = 0;
+        _rtmp322 = input.readListBegin();
+        _etype21 = _rtmp322.etype;
+        _size18 = _rtmp322.size;
+        for (var _i23 = 0; _i23 < _size18; ++_i23)
+        {
+          var elem24 = null;
+          elem24 = input.readString();
+          this.success.push(elem24);
+        }
+        input.readListEnd();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 0:
+        input.skip(ftype);
+        break;
+      default:
+        input.skip(ftype);
+    }
+    input.readFieldEnd();
+  }
+  input.readStructEnd();
+  return;
+};
+
+TSayHelloService_sssssss_result.prototype.write = function(output) {
+  output.writeStructBegin('TSayHelloService_sssssss_result');
+  if (this.success !== null && this.success !== undefined) {
+    output.writeFieldBegin('success', Thrift.Type.LIST, 0);
+    output.writeListBegin(Thrift.Type.STRING, this.success.length);
+    for (var iter25 in this.success)
+    {
+      if (this.success.hasOwnProperty(iter25))
+      {
+        iter25 = this.success[iter25];
+        output.writeString(iter25);
+      }
+    }
+    output.writeListEnd();
+    output.writeFieldEnd();
+  }
+  output.writeFieldStop();
+  output.writeStructEnd();
+  return;
+};
+
+var TSayHelloService_testMap_args = function(args) {
+  this.startDate = null;
+  this.endDate = null;
+  this.offset = null;
+  this.limit = null;
+  if (args) {
+    if (args.startDate !== undefined && args.startDate !== null) {
+      this.startDate = args.startDate;
+    }
+    if (args.endDate !== undefined && args.endDate !== null) {
+      this.endDate = args.endDate;
+    }
+    if (args.offset !== undefined && args.offset !== null) {
+      this.offset = args.offset;
+    }
+    if (args.limit !== undefined && args.limit !== null) {
+      this.limit = args.limit;
+    }
+  }
+};
+TSayHelloService_testMap_args.prototype = {};
+TSayHelloService_testMap_args.prototype.read = function(input) {
+  input.readStructBegin();
+  while (true)
+  {
+    var ret = input.readFieldBegin();
+    var fname = ret.fname;
+    var ftype = ret.ftype;
+    var fid = ret.fid;
+    if (ftype == Thrift.Type.STOP) {
+      break;
+    }
+    switch (fid)
+    {
+      case 1:
+      if (ftype == Thrift.Type.STRING) {
+        this.startDate = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 2:
+      if (ftype == Thrift.Type.STRING) {
+        this.endDate = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 3:
+      if (ftype == Thrift.Type.I32) {
+        this.offset = input.readI32();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 4:
+      if (ftype == Thrift.Type.I32) {
+        this.limit = input.readI32();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      default:
+        input.skip(ftype);
+    }
+    input.readFieldEnd();
+  }
+  input.readStructEnd();
+  return;
+};
+
+TSayHelloService_testMap_args.prototype.write = function(output) {
+  output.writeStructBegin('TSayHelloService_testMap_args');
+  if (this.startDate !== null && this.startDate !== undefined) {
+    output.writeFieldBegin('startDate', Thrift.Type.STRING, 1);
+    output.writeString(this.startDate);
+    output.writeFieldEnd();
+  }
+  if (this.endDate !== null && this.endDate !== undefined) {
+    output.writeFieldBegin('endDate', Thrift.Type.STRING, 2);
+    output.writeString(this.endDate);
+    output.writeFieldEnd();
+  }
+  if (this.offset !== null && this.offset !== undefined) {
+    output.writeFieldBegin('offset', Thrift.Type.I32, 3);
+    output.writeI32(this.offset);
+    output.writeFieldEnd();
+  }
+  if (this.limit !== null && this.limit !== undefined) {
+    output.writeFieldBegin('limit', Thrift.Type.I32, 4);
+    output.writeI32(this.limit);
+    output.writeFieldEnd();
+  }
+  output.writeFieldStop();
+  output.writeStructEnd();
+  return;
+};
+
+var TSayHelloService_testMap_result = function(args) {
+  this.success = null;
+  if (args) {
+    if (args.success !== undefined && args.success !== null) {
+      this.success = Thrift.copyMap(args.success, [Thrift.copyList, null]);
+    }
+  }
+};
+TSayHelloService_testMap_result.prototype = {};
+TSayHelloService_testMap_result.prototype.read = function(input) {
+  input.readStructBegin();
+  while (true)
+  {
+    var ret = input.readFieldBegin();
+    var fname = ret.fname;
+    var ftype = ret.ftype;
+    var fid = ret.fid;
+    if (ftype == Thrift.Type.STOP) {
+      break;
+    }
+    switch (fid)
+    {
+      case 0:
+      if (ftype == Thrift.Type.MAP) {
+        var _size26 = 0;
+        var _rtmp330;
+        this.success = {};
+        var _ktype27 = 0;
+        var _vtype28 = 0;
+        _rtmp330 = input.readMapBegin();
+        _ktype27 = _rtmp330.ktype;
+        _vtype28 = _rtmp330.vtype;
+        _size26 = _rtmp330.size;
+        for (var _i31 = 0; _i31 < _size26; ++_i31)
+        {
+          var key32 = null;
+          var val33 = null;
+          var _size34 = 0;
+          var _rtmp338;
+          key32 = [];
+          var _etype37 = 0;
+          _rtmp338 = input.readListBegin();
+          _etype37 = _rtmp338.etype;
+          _size34 = _rtmp338.size;
+          for (var _i39 = 0; _i39 < _size34; ++_i39)
+          {
+            var elem40 = null;
+            elem40 = input.readString();
+            key32.push(elem40);
+          }
+          input.readListEnd();
+          var _size41 = 0;
+          var _rtmp345;
+          val33 = [];
+          var _etype44 = 0;
+          _rtmp345 = input.readSetBegin();
+          _etype44 = _rtmp345.etype;
+          _size41 = _rtmp345.size;
+          for (var _i46 = 0; _i46 < _size41; ++_i46)
+          {
+            var elem47 = null;
+            elem47 = input.readI32();
+            val33.push(elem47);
+          }
+          input.readSetEnd();
+          this.success[key32] = val33;
+        }
+        input.readMapEnd();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 0:
+        input.skip(ftype);
+        break;
+      default:
+        input.skip(ftype);
+    }
+    input.readFieldEnd();
+  }
+  input.readStructEnd();
+  return;
+};
+
+TSayHelloService_testMap_result.prototype.write = function(output) {
+  output.writeStructBegin('TSayHelloService_testMap_result');
+  if (this.success !== null && this.success !== undefined) {
+    output.writeFieldBegin('success', Thrift.Type.MAP, 0);
+    output.writeMapBegin(Thrift.Type.LIST, Thrift.Type.SET, Thrift.objectLength(this.success));
+    for (var kiter48 in this.success)
+    {
+      if (this.success.hasOwnProperty(kiter48))
+      {
+        var viter49 = this.success[kiter48];
+        output.writeListBegin(Thrift.Type.STRING, kiter48.length);
+        for (var iter50 in kiter48)
+        {
+          if (kiter48.hasOwnProperty(iter50))
+          {
+            iter50 = kiter48[iter50];
+            output.writeString(iter50);
+          }
+        }
+        output.writeListEnd();
+        output.writeSetBegin(Thrift.Type.I32, viter49.length);
+        for (var iter51 in viter49)
+        {
+          if (viter49.hasOwnProperty(iter51))
+          {
+            iter51 = viter49[iter51];
+            output.writeI32(iter51);
+          }
+        }
+        output.writeSetEnd();
+      }
+    }
+    output.writeMapEnd();
+    output.writeFieldEnd();
+  }
+  output.writeFieldStop();
+  output.writeStructEnd();
+  return;
+};
+
 var TSayHelloServiceClient = exports.Client = function(output, pClass) {
     this.output = output;
     this.pClass = pClass;
@@ -130,6 +643,57 @@ var TSayHelloServiceClient = exports.Client = function(output, pClass) {
 TSayHelloServiceClient.prototype = {};
 TSayHelloServiceClient.prototype.seqid = function() { return this._seqid; };
 TSayHelloServiceClient.prototype.new_seqid = function() { return this._seqid += 1; };
+TSayHelloServiceClient.prototype.testRequest = function(celebrityId, cityId, otherParams, callback) {
+  this._seqid = this.new_seqid();
+  if (callback === undefined) {
+    var _defer = Q.defer();
+    this._reqs[this.seqid()] = function(error, result) {
+      if (error) {
+        _defer.reject(error);
+      } else {
+        _defer.resolve(result);
+      }
+    };
+    this.send_testRequest(celebrityId, cityId, otherParams);
+    return _defer.promise;
+  } else {
+    this._reqs[this.seqid()] = callback;
+    this.send_testRequest(celebrityId, cityId, otherParams);
+  }
+};
+
+TSayHelloServiceClient.prototype.send_testRequest = function(celebrityId, cityId, otherParams) {
+  var output = new this.pClass(this.output);
+  output.writeMessageBegin('testRequest', Thrift.MessageType.CALL, this.seqid());
+  var params = {
+    celebrityId: celebrityId,
+    cityId: cityId,
+    otherParams: otherParams
+  };
+  var args = new TSayHelloService_testRequest_args(params);
+  args.write(output);
+  output.writeMessageEnd();
+  return this.output.flush();
+};
+
+TSayHelloServiceClient.prototype.recv_testRequest = function(input,mtype,rseqid) {
+  var callback = this._reqs[rseqid] || function() {};
+  delete this._reqs[rseqid];
+  if (mtype == Thrift.MessageType.EXCEPTION) {
+    var x = new Thrift.TApplicationException();
+    x.read(input);
+    input.readMessageEnd();
+    return callback(x);
+  }
+  var result = new TSayHelloService_testRequest_result();
+  result.read(input);
+  input.readMessageEnd();
+
+  if (null !== result.success) {
+    return callback(null, result.success);
+  }
+  return callback('testRequest failed: unknown result');
+};
 TSayHelloServiceClient.prototype.sayHello = function(arg0, callback) {
   this._seqid = this.new_seqid();
   if (callback === undefined) {
@@ -179,6 +743,107 @@ TSayHelloServiceClient.prototype.recv_sayHello = function(input,mtype,rseqid) {
   }
   return callback('sayHello failed: unknown result');
 };
+TSayHelloServiceClient.prototype.sssssss = function(arg0, callback) {
+  this._seqid = this.new_seqid();
+  if (callback === undefined) {
+    var _defer = Q.defer();
+    this._reqs[this.seqid()] = function(error, result) {
+      if (error) {
+        _defer.reject(error);
+      } else {
+        _defer.resolve(result);
+      }
+    };
+    this.send_sssssss(arg0);
+    return _defer.promise;
+  } else {
+    this._reqs[this.seqid()] = callback;
+    this.send_sssssss(arg0);
+  }
+};
+
+TSayHelloServiceClient.prototype.send_sssssss = function(arg0) {
+  var output = new this.pClass(this.output);
+  output.writeMessageBegin('sssssss', Thrift.MessageType.CALL, this.seqid());
+  var params = {
+    arg0: arg0
+  };
+  var args = new TSayHelloService_sssssss_args(params);
+  args.write(output);
+  output.writeMessageEnd();
+  return this.output.flush();
+};
+
+TSayHelloServiceClient.prototype.recv_sssssss = function(input,mtype,rseqid) {
+  var callback = this._reqs[rseqid] || function() {};
+  delete this._reqs[rseqid];
+  if (mtype == Thrift.MessageType.EXCEPTION) {
+    var x = new Thrift.TApplicationException();
+    x.read(input);
+    input.readMessageEnd();
+    return callback(x);
+  }
+  var result = new TSayHelloService_sssssss_result();
+  result.read(input);
+  input.readMessageEnd();
+
+  if (null !== result.success) {
+    return callback(null, result.success);
+  }
+  return callback('sssssss failed: unknown result');
+};
+TSayHelloServiceClient.prototype.testMap = function(startDate, endDate, offset, limit, callback) {
+  this._seqid = this.new_seqid();
+  if (callback === undefined) {
+    var _defer = Q.defer();
+    this._reqs[this.seqid()] = function(error, result) {
+      if (error) {
+        _defer.reject(error);
+      } else {
+        _defer.resolve(result);
+      }
+    };
+    this.send_testMap(startDate, endDate, offset, limit);
+    return _defer.promise;
+  } else {
+    this._reqs[this.seqid()] = callback;
+    this.send_testMap(startDate, endDate, offset, limit);
+  }
+};
+
+TSayHelloServiceClient.prototype.send_testMap = function(startDate, endDate, offset, limit) {
+  var output = new this.pClass(this.output);
+  output.writeMessageBegin('testMap', Thrift.MessageType.CALL, this.seqid());
+  var params = {
+    startDate: startDate,
+    endDate: endDate,
+    offset: offset,
+    limit: limit
+  };
+  var args = new TSayHelloService_testMap_args(params);
+  args.write(output);
+  output.writeMessageEnd();
+  return this.output.flush();
+};
+
+TSayHelloServiceClient.prototype.recv_testMap = function(input,mtype,rseqid) {
+  var callback = this._reqs[rseqid] || function() {};
+  delete this._reqs[rseqid];
+  if (mtype == Thrift.MessageType.EXCEPTION) {
+    var x = new Thrift.TApplicationException();
+    x.read(input);
+    input.readMessageEnd();
+    return callback(x);
+  }
+  var result = new TSayHelloService_testMap_result();
+  result.read(input);
+  input.readMessageEnd();
+
+  if (null !== result.success) {
+    return callback(null, result.success);
+  }
+  return callback('testMap failed: unknown result');
+};
 var TSayHelloServiceProcessor = exports.Processor = function(handler) {
   this._handler = handler;
 }
@@ -198,6 +863,42 @@ TSayHelloServiceProcessor.prototype.process = function(input, output) {
   }
 }
 ;
+TSayHelloServiceProcessor.prototype.process_testRequest = function(seqid, input, output) {
+  var args = new TSayHelloService_testRequest_args();
+  args.read(input);
+  input.readMessageEnd();
+  if (this._handler.testRequest.length === 3) {
+    Q.fcall(this._handler.testRequest.bind(this._handler), args.celebrityId, args.cityId, args.otherParams)
+      .then(function(result) {
+        var result_obj = new TSayHelloService_testRequest_result({success: result});
+        output.writeMessageBegin("testRequest", Thrift.MessageType.REPLY, seqid);
+        result_obj.write(output);
+        output.writeMessageEnd();
+        output.flush();
+      }, function (err) {
+        var result;
+        result = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
+        output.writeMessageBegin("testRequest", Thrift.MessageType.EXCEPTION, seqid);
+        result.write(output);
+        output.writeMessageEnd();
+        output.flush();
+      });
+  } else {
+    this._handler.testRequest(args.celebrityId, args.cityId, args.otherParams, function (err, result) {
+      var result_obj;
+      if ((err === null || typeof err === 'undefined')) {
+        result_obj = new TSayHelloService_testRequest_result((err !== null || typeof err === 'undefined') ? err : {success: result});
+        output.writeMessageBegin("testRequest", Thrift.MessageType.REPLY, seqid);
+      } else {
+        result_obj = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
+        output.writeMessageBegin("testRequest", Thrift.MessageType.EXCEPTION, seqid);
+      }
+      result_obj.write(output);
+      output.writeMessageEnd();
+      output.flush();
+    });
+  }
+};
 TSayHelloServiceProcessor.prototype.process_sayHello = function(seqid, input, output) {
   var args = new TSayHelloService_sayHello_args();
   args.read(input);
@@ -227,6 +928,78 @@ TSayHelloServiceProcessor.prototype.process_sayHello = function(seqid, input, ou
       } else {
         result_obj = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
         output.writeMessageBegin("sayHello", Thrift.MessageType.EXCEPTION, seqid);
+      }
+      result_obj.write(output);
+      output.writeMessageEnd();
+      output.flush();
+    });
+  }
+};
+TSayHelloServiceProcessor.prototype.process_sssssss = function(seqid, input, output) {
+  var args = new TSayHelloService_sssssss_args();
+  args.read(input);
+  input.readMessageEnd();
+  if (this._handler.sssssss.length === 1) {
+    Q.fcall(this._handler.sssssss.bind(this._handler), args.arg0)
+      .then(function(result) {
+        var result_obj = new TSayHelloService_sssssss_result({success: result});
+        output.writeMessageBegin("sssssss", Thrift.MessageType.REPLY, seqid);
+        result_obj.write(output);
+        output.writeMessageEnd();
+        output.flush();
+      }, function (err) {
+        var result;
+        result = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
+        output.writeMessageBegin("sssssss", Thrift.MessageType.EXCEPTION, seqid);
+        result.write(output);
+        output.writeMessageEnd();
+        output.flush();
+      });
+  } else {
+    this._handler.sssssss(args.arg0, function (err, result) {
+      var result_obj;
+      if ((err === null || typeof err === 'undefined')) {
+        result_obj = new TSayHelloService_sssssss_result((err !== null || typeof err === 'undefined') ? err : {success: result});
+        output.writeMessageBegin("sssssss", Thrift.MessageType.REPLY, seqid);
+      } else {
+        result_obj = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
+        output.writeMessageBegin("sssssss", Thrift.MessageType.EXCEPTION, seqid);
+      }
+      result_obj.write(output);
+      output.writeMessageEnd();
+      output.flush();
+    });
+  }
+};
+TSayHelloServiceProcessor.prototype.process_testMap = function(seqid, input, output) {
+  var args = new TSayHelloService_testMap_args();
+  args.read(input);
+  input.readMessageEnd();
+  if (this._handler.testMap.length === 4) {
+    Q.fcall(this._handler.testMap.bind(this._handler), args.startDate, args.endDate, args.offset, args.limit)
+      .then(function(result) {
+        var result_obj = new TSayHelloService_testMap_result({success: result});
+        output.writeMessageBegin("testMap", Thrift.MessageType.REPLY, seqid);
+        result_obj.write(output);
+        output.writeMessageEnd();
+        output.flush();
+      }, function (err) {
+        var result;
+        result = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
+        output.writeMessageBegin("testMap", Thrift.MessageType.EXCEPTION, seqid);
+        result.write(output);
+        output.writeMessageEnd();
+        output.flush();
+      });
+  } else {
+    this._handler.testMap(args.startDate, args.endDate, args.offset, args.limit, function (err, result) {
+      var result_obj;
+      if ((err === null || typeof err === 'undefined')) {
+        result_obj = new TSayHelloService_testMap_result((err !== null || typeof err === 'undefined') ? err : {success: result});
+        output.writeMessageBegin("testMap", Thrift.MessageType.REPLY, seqid);
+      } else {
+        result_obj = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
+        output.writeMessageBegin("testMap", Thrift.MessageType.EXCEPTION, seqid);
       }
       result_obj.write(output);
       output.writeMessageEnd();

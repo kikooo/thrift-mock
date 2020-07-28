@@ -5,7 +5,7 @@
  */
 
 // const thrift = require('thrift');
-const createServer = require('./lib/createServer');
+const { createServer } = require('./lib/createServer');
 
 // 配置示例
 let cfgs = require('./test/config');
