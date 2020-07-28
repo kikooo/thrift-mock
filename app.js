@@ -15,7 +15,7 @@ class ThriftMocker {
   constructor(options = {}) {
     this.services = options;
     for (const k in options) {
-      if (Object.prototype.hasOwnProperty.call(config, k) && k !== 'default') {
+      if (Object.prototype.hasOwnProperty.call(options, k) && k !== 'default') {
         getMockTreeNode(options[k].idl);
       }
     }
