@@ -3,7 +3,6 @@
 const path = require('path');
 const localMock = require('./lib/local-mock');
 const util = require('./lib/util');
-
 const { getMockByMethod } = require('./lib/mock');
 const { getMockTreeNode } = require('./lib/getMockTreeNode');
 
@@ -26,7 +25,7 @@ const thriftMock = (key, conf) => {
   const matchReg = util.getMatchRegExp(key);
   const { idl } = conf;
   return async function thriftProxy(ctx, next) {
-    if (util.isApi(ctx.path) && matchReg.exec(ctx.path)) {
+    if (util.isThriftMock(ctx.path) && matchReg.exec(ctx.path)) {
       const methodName = matchReg.exec(ctx.path)[1];
       ctx.logger.info(`[thrift mock] TO ${key}-${methodName}`);
 
@@ -56,7 +55,7 @@ module.exports = app => {
   const config = app.config.thriftMock;
   app.thriftMocker = new ThriftMocker(config);
 
-  Object.keys(options).forEach(k => {
+  Object.keys(config).forEach(k => {
     useMiddleware(app, k, config[k]);
   });
 };
