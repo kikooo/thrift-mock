@@ -1,17 +1,20 @@
 /**
- * @file 启动文件
+ * @file index
  *
  * @author kikooo(wenyunyan@maoyan.com)
  */
-
-// const thrift = require('thrift');
+// 示例
 const { createServer } = require('./lib/createServer');
+const { getMockTreeNode } = require('./lib/getMockTreeNode');
+const { getMockByMethod } = require('./lib/mock');
+const MockFuncs = require('./lib/mockFunc');
 
-// 配置示例
-let cfgs = require('./test/config');
+// let cfgs = require('./test/config');
+// createServer(cfgs.thrift.servers);
 
-if (typeof cfgs === 'string') {
-  cfgs = JSON.parse(cfgs);
-}
-
-createServer(cfgs.thrift.servers);
+module.exports = {
+  MockFuncs,
+  getMockByMethod,
+  getMockTreeNode,
+  createServer
+};
