@@ -1,7 +1,7 @@
 /**
  * @file index
  *
- * @author kikooo(wenyunyan@maoyan.com)
+ * @author kikooo(kikooo_0421@163.com)
  */
 // 示例
 const { createServer } = require('./lib/createServer');

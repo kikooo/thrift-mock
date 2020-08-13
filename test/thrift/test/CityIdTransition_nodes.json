@@ -1,1 +1,0 @@
-{"lastModifiedTime":"1596014385716.5613","nodes":{},"services":{"TMaoyanGatewayCityMappingService":{"getMtCityIdByDpCityId":{"_request":{"dpCityId":{"_type":"i32","_name":"dpCityId"}},"_name":"getMtCityIdByDpCityId","_response":"i32"},"getDpCityIdByMtCityId":{"_request":{"mtCityId":{"_type":"i32","_name":"mtCityId"}},"_name":"getDpCityIdByMtCityId","_response":"i32"}}}}
