@@ -63,5 +63,8 @@ url举例：
 const mockUrl = `http://${localhost}/thrift-mock/${serviceName}/${methodName}`
 ```
 
+### 方式四：自定义数据mock方法
+详见`example/custom-mock-example.js`。
+
 ## 其他
 **欢迎各类纠错和补充。谢谢大家~**
