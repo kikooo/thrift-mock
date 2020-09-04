@@ -57,7 +57,7 @@ module.exports = app => class ThriftController extends app.Controller {
 ```
 
 ### 方式三：作为egg插件做中间件使用
-建议搭配`egg-datasource`使用。直接请求即可。
+拦截请求，直接请求以下格式url即可。
 url举例：
 ```javascript
 const mockUrl = `http://${localhost}/thrift-mock/${serviceName}/${methodName}`
