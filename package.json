@@ -1,6 +1,6 @@
 {
   "name": "egg-thrift-mock",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "thrift mock module",
   "eggPlugin": {
     "name": "thrift-mock"
