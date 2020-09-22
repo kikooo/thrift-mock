@@ -12,7 +12,7 @@
   "extends": "airbnb",
   "rules": {
     "import/extensions": 0,
-    "import/no-unresolved": [2, {"ignore": ["component", "model", "framework", "asset", "util"]}],
+    "import/no-unresolved": [2, { "ignore": ["egg-thrift-mock"] }],
     "comma-dangle": 0,
     "import/no-extraneous-dependencies": 0,
     "global-require": 0,
@@ -33,10 +33,7 @@
     ]
   },
   "globals": {
-    "EASY_ENV_IS_NODE": true,
-    "EASY_ENV_IS_DEV": true,
     "document": true,
-    "window": true,
-    "fetch": true
+    "window": true
   }
 }

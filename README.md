@@ -50,7 +50,7 @@ module.exports = app => class ThriftController extends app.Controller {
     ctx.status = 200;
     ctx.body = {
       success: true,
-      data: result
+      data: result.data
     };
   }
 };
@@ -64,7 +64,8 @@ const mockUrl = `http://${localhost}/thrift-mock/${serviceName}/${methodName}`
 ```
 
 ### 方式四：自定义数据mock方法
-详见`example/custom-mock-example.js`。
+支持mock规则自定义。
+使用方法详见`example/custom-mock-example.js`。
 
 ## 其他
 **欢迎各类纠错和补充。谢谢大家~**

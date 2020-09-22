@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 const localMock = require('./lib/local-mock');
 const util = require('./lib/util');
@@ -38,11 +36,12 @@ const thriftMock = (key, conf) => {
     } else {
       await next();
     }
+    return undefined;
   };
 };
 
 function useMiddleware(app, k, conf) {
-  if(conf.mockFile) {
+  if (conf.mockFile) {
     // 本地文件 mock，支持 .js/.json
     const targetPath = path.join(app.baseDir, conf.mockFile);
     app.use(localMock(k, targetPath));
